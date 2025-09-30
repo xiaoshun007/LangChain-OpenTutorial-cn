@@ -71,7 +71,7 @@
         "tab": "LangChain",
         "groups": [
           {
-            "group": "Endpoint examples",
+            "group": "基础",
             "pages": [
               "lang-chain/01-Basic/01-Getting-Started-Windows"
             ]
