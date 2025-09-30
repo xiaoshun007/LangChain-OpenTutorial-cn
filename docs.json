@@ -69,7 +69,15 @@
       },
       {
         "tab": "LangChain",
-        "groups": []
+        "groups": [
+          {
+            "group": "Endpoint examples",
+            "pages": [
+              "lang-chain/Basic/01-Getting-Started-Windows"
+            ]
+          }
+          
+        ]
       }
     ],
     "global": {
