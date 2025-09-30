@@ -66,6 +66,17 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "LangChain",
+        "groups": [
+          {
+            "group": "Tutorials",
+            "pages": [
+              "01-Basic/01-Getting-Started-Windows"
+            ]
+          }
+        ]
       }
     ],
     "global": {
