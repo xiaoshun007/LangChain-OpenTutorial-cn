@@ -69,14 +69,7 @@
       },
       {
         "tab": "LangChain",
-        "groups": [
-          {
-            "group": "Tutorials",
-            "pages": [
-              "lang-chain/start"
-            ]
-          }
-        ]
+        "groups": []
       }
     ],
     "global": {
@@ -113,15 +106,15 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
