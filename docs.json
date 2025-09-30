@@ -68,12 +68,12 @@
         ]
       },
       {
-        "tab": "docs",
+        "tab": "LangChain",
         "groups": [
           {
             "group": "Tutorials",
             "pages": [
-              "01-Basic/01-Getting-Started-Windows"
+              "Basic/Getting-Started-Windows"
             ]
           }
         ]
