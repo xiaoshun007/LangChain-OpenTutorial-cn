@@ -27,8 +27,8 @@ title: "windows环境"
 - [安装 git](#安装git)
 - [安装 pyenv](#安装pyenv)
 - [安装 Poetry](#安装Poetry)
-- [安装 Visual Studio Code](#安装Visual Studio Code)
-- [安装 Jupyter Extension](#安装Jupyter Extension)
+- [安装 Visual Studio Code](#安装VSCode)
+- [安装 Jupyter Extension](#安装Jupyter扩展)
 
 ### 下载链接
 
@@ -41,7 +41,7 @@ title: "windows环境"
 
 [下载git](https://git-scm.com/download/win)
 
-Download 64-bit Git for Windows Setup
+下载 64 位 Git 的 Windows 安装程序。
 
 ![git-download](./img/01-follow-the-installation-video-windows-01.png)
 
@@ -49,13 +49,13 @@ Download 64-bit Git for Windows Setup
 
 ![](./img/01-follow-the-installation-video-windows-02.png)
 
-Click the Next button for all the rest to proceed with the installation.
+在后续所有步骤中均点击 Next 按钮以继续安装。
 
 ![](./img/01-follow-the-installation-video-windows-03.png)
 
-Window key - PowerShell must be run as administrator
+按 Windows + R 键 - 必须以管理员身份运行 PowerShell
 
-Enter the command "`git`" and verify that the output looks like the image below
+输入命令 "git" 并验证输出结果是否与下图所示一致
 
 ```powershell
 git
@@ -63,29 +63,29 @@ git
 
 ![](./img/01-follow-the-installation-video-windows-04.png)
 
-- Apply PowerShell Policy
+- 应用 PowerShell 策略
 
-First, run **Windows PowerShell** as an "administrator".
+首先，以"管理员"身份运行 Windows PowerShell。
 
-Enter the following command to apply the policy
+输入以下命令以应用该策略：
 
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 ```
 
-After the application is complete, turn Windows PowerShell off and then on. For the purposes of the following, "Run as administrator" when running Windows PowerShell.
+应用完成后，请关闭并重新启动 Windows PowerShell。在后续操作中，运行 Windows PowerShell 时均需选择"以管理员身份运行"。
 
 ## 安装pyenv
 
-Install pyenv before installing python. pyenv installs a virtualization environment to prevent conflicts between packages.
+在安装 Python 前，请先安装 pyenv。pyenv 通过创建虚拟化环境来防止软件包之间发生冲突。
 
 ```bash
 git clone https://github.com/pyenv-win/pyenv-win.git "$env:USERPROFILE\.pyenv"
 ```
 
-- Add environment variables
+- 添加环境变量
 
-Copy and paste the content below and run it
+请复制并粘贴以下内容后执行。
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable('PYENV', $env:USERPROFILE + "\.pyenv\pyenv-win\", "User")
@@ -93,15 +93,15 @@ Copy and paste the content below and run it
 [System.Environment]::SetEnvironmentVariable('PYENV_HOME', $env:USERPROFILE + "\.pyenv\pyenv-win\", "User")
 ```
 
-Copy and paste the content below and run it
+请复制并粘贴以下内容后执行。
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable('PATH', $env:USERPROFILE + "\.pyenv\pyenv-win\bin;" + $env:USERPROFILE + "\.pyenv\pyenv-win\shims;" + [System.Environment]::GetEnvironmentVariable('PATH', "User"), "User")
 ```
 
-Shut down and rerun the current Windows PowerShell.
+请关闭当前 Windows PowerShell 并重新启动。
 
-Enter the following command to verify that it works.
+输入以下命令以验证其是否正常运行：
 
 ```powershell
 pyenv
@@ -131,9 +131,9 @@ python --version
 
 请确保您已安装 3.11.9 版本（安装 3.11.11 版本亦可！）。
 
-## 安装 Poetry
+## 安装Poetry
 
-Run the command below to install the Poetry package management tool.
+请运行以下命令以安装 Poetry 包管理工具。
 
 ```bash
 pip3 install poetry
@@ -141,60 +141,60 @@ pip3 install poetry
 
 - [Link to LangChain-OpenTutorial.git](https://github.com/LangChain-OpenTutorial/LangChain-OpenTutorial.git)
 
-Navigate to the Documents folder.
+导航至 Documents 文件夹。
 
 ```powershell
 cd ~/Documents
 ```
 
-Execute the command below to get the source code.
+请执行以下命令以获取源代码。
 
 ```powershell
 git clone https://github.com/LangChain-OpenTutorial/LangChain-OpenTutorial.git
 ```
 
-Execute the command below to navigate to the LangChain-OpenTutorial directory.
+请执行以下命令以切换到 LangChain-OpenTutorial 目录。
 
 ```powershell
 cd LangChain-OpenTutorial
 ```
 
-Setting up a Python virtual environment
+正在设置 Python 虚拟环境
 
 ```powershell
 poetry shell
 ```
 
-Batch update Python packages
+批量更新 Python 包
 
 ```powershell
 poetry update
 ```
 
-## Install Visual Studio Code
+## 安装VSCode
 
-Download Visual Studio Code
+下载Visual Studio Code
 
-- [Download Visual Studio Code](https://code.visualstudio.com/download)
+- [下载Visual Studio Code](https://code.visualstudio.com/download)
 
-Install the downloaded Visual Studio Code (copy it to the Applications folder)
+安装已下载的 Visual Studio Code (把它拷贝到应用程序文件夹)
 
-Click 'install' of Jupyter on left Menu of extensions
+在扩展程序的左侧菜单中点击 Jupyter 的“安装”按钮
 
 ![](./img/01-follow-the-installation-video-windows-06.png)
 
-## Install Jupyter Extension
+## 安装Jupyter扩展
 
-Search for "python" and install
+搜索 "python" 并且安装
 
 ![](./img/01-follow-the-installation-video-windows-07.png)
 
-Search for "jupyter" and install
+搜索 "jupyter" 并完成安装
 
 ![](./img/01-follow-the-installation-video-windows-08.png)
 
-Turn off and restart Visual Studio Code
+请关闭并重启 Visual Studio Code。
 
-The installation is complete, and you can click the "select kernel" button in the top right corner.
+安装已完成，此时可点击右上角的"选择内核"按钮。
 
-Click python environment - if you don't see the virtual environment you installed, turn off Visual Studio Code and restart it
+点击 Python 环境 - 若未显示已安装的虚拟环境，请关闭并重启 Visual Studio Code。
