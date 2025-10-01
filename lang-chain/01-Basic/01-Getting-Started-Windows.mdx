@@ -9,8 +9,6 @@ title: "windows环境"
 - 校对 : [Q0211](https://github.com/Q0211)
 - 本内容是 [LangChain Open Tutorial](https://github.com/LangChain-OpenTutorial/LangChain-OpenTutorial) 的一部分
 
-[Open in Colab](https://colab.research.google.com/github/LangChain-OpenTutorial/LangChain-OpenTutorial/blob/main/01-Basic/01-Getting-Started-Windows.ipynb) [Open in GitHub](https://github.com/LangChain-OpenTutorial/LangChain-OpenTutorial/blob/main/01-Basic/01-Getting-Started-Windows.ipynb)
-
 <Card title="打开Colab" href="https://colab.research.google.com/github/LangChain-OpenTutorial/LangChain-OpenTutorial/blob/main/01-Basic/01-Getting-Started-Windows.ipynb" img="https://colab.research.google.com/assets/colab-badge.svg">
   
 </Card>
@@ -21,18 +19,16 @@ title: "windows环境"
 
 ## 概述
 
-This tutorial explains how to install the LangChain package on Windows environment. You can easily build a development environment by cloning the required github repository, batch installing the same packages as the author via pyenv, Poetry, installing Visual Studio Code and Jupyter Extension.
-
-/
+本教程将详细介绍如何在 Windows 环境下安装 LangChain 包。您可以通过克隆所需的 GitHub 仓库、通过 pyenv 和 Poetry 批量安装与作者相同的软件包、安装 Visual Studio Code 及 Jupyter 扩展，轻松搭建开发环境。
 
 ### 目录
 
 - [概述](#概述)
-- [安装git](#安装git)
-- [安装pyenv](#安装pyenv)
-- [安装Poetry](#安装Poetry)
-- [安装Visual Studio Code](#安装Visual Studio Code)
-- [安装Jupyter Extension](#安装Jupyter Extension)
+- [安装 git](#安装git)
+- [安装 pyenv](#安装pyenv)
+- [安装 Poetry](#安装Poetry)
+- [安装 Visual Studio Code](#安装Visual Studio Code)
+- [安装 Jupyter Extension](#安装Jupyter Extension)
 
 ### 下载链接
 
@@ -41,7 +37,7 @@ This tutorial explains how to install the LangChain package on Windows environme
 
 ---
 
-## 安装git
+## 安装 git
 
 [下载git](https://git-scm.com/download/win)
 
@@ -79,7 +75,7 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
 After the application is complete, turn Windows PowerShell off and then on. For the purposes of the following, "Run as administrator" when running Windows PowerShell.
 
-## Install pyenv
+## 安装pyenv
 
 Install pyenv before installing python. pyenv installs a virtualization environment to prevent conflicts between packages.
 
@@ -113,29 +109,30 @@ pyenv
 
 ![](./img/01-follow-the-installation-video-windows-05.png)
 
-- Install python
+- 安装 python
 
-Install Python version 3.11
+安装 Python 3.11
 
 ```powershell
 pyenv install 3.11
 ```
 
-Setting 3.11 version of python as the default runtime
+将 Python 3.11 设置为默认运行时环境。
+
 
 ```powershell
 pyenv global 3.11
 ```
 
-Check your Python version
+检查 Python 版本
 
 ```powershell
 python --version
 ```
 
-Make sure you have version 3.11.9 installed (or 3.11.11 is fine too!).
+请确保您已安装 3.11.9 版本（安装 3.11.11 版本亦可！）。
 
-## Install Poetry
+## 安装 Poetry
 
 Run the command below to install the Poetry package management tool.
 
