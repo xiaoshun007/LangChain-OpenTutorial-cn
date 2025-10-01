@@ -71,6 +71,12 @@
         "tab": "LangChain",
         "groups": [
           {
+            "group": "说明",
+            "pages": [
+              "lang-chain/index"
+            ]
+          },
+          {
             "group": "准备",
             "pages": [
               "lang-chain/01-Basic/01-Getting-Started-Windows",
