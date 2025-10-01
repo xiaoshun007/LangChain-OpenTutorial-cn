@@ -73,8 +73,7 @@
           {
             "group": "准备",
             "pages": [
-              "lang-chain/01-Basic/01-Getting-Started-Windows",
-              "lang-chain/01-Basic/02-Getting-Started-Mac"
+              "lang-chain/01-Basic/01-Getting-Started-Windows"
             ]
           }
           
