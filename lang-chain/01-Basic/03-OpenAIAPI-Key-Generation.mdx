@@ -1,123 +1,132 @@
 ---
-title: 'OpenAI API Key Generation and Testing Guide'
-description: 'OpenAI API Key Generation and Testing Guide.'
+title: 'OpenAI API密钥生成与测试指南'
+description: 'OpenAI API密钥生成与测试指南。'
 ---
 
 
-- Author: [Minji](https://github.com/r14minji)
-- Peer Review: [Chang-Jun Lee](https://powersolution.notion.site/), [Wooseok Jeong](https://github.com/jeong-wooseok)
-- Proofread : [Q0211](https://github.com/Q0211)
-- This is a part of [LangChain Open Tutorial](https://github.com/LangChain-OpenTutorial/LangChain-OpenTutorial)
+- 作者: [Minji](https://github.com/r14minji)
+- 评审: [Chang-Jun Lee](https://powersolution.notion.site/), [Wooseok Jeong](https://github.com/jeong-wooseok)
+- 校对 : [Q0211](https://github.com/Q0211)
+- 本内容是 [LangChain Open Tutorial](https://github.com/LangChain-OpenTutorial/LangChain-OpenTutorial) 的一部分
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/LangChain-OpenTutorial/LangChain-OpenTutorial/blob/main/01-Basic/03-OpenAIAPI-Key-Generation.ipynb)
-[![Open in GitHub](https://img.shields.io/badge/Open%20in%20GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/LangChain-OpenTutorial/LangChain-OpenTutorial/blob/main/01-Basic/03-OpenAIAPI-Key-Generation.ipynb)
+<Card title="打开Colab" href="https://colab.research.google.com/github/LangChain-OpenTutorial/LangChain-OpenTutorial/blob/main/01-Basic/03-OpenAIAPI-Key-Generation.ipynb" img="https://colab.research.google.com/assets/colab-badge.svg">
+  
+</Card>
 
-## Overview
+<Card title="打开github" href="https://github.com/LangChain-OpenTutorial/LangChain-OpenTutorial/blob/main/01-Basic/03-OpenAIAPI-Key-Generation.ipynb" img="https://img.shields.io/badge/Open%20in%20GitHub-181717?style=flat-square&logo=github&logoColor=white">
+  
+</Card>
 
-This guide explains how to get and use an OpenAI API key, including costs and limits.
+## 概述
 
-To begin, you'll create your API key on OpenAI's platform and set up your development environment.
+本指南详细说明OpenAI API密钥的获取方式、使用规范及相关成本限制。
 
-After setup, you can test your API key to ensure it works correctly with your applications.
+首先需要在OpenAI平台创建API密钥，并完成开发环境配置。
 
-### Table of Contents
-- [Overview](#overview)
-- [Setting Up OpenAI API Payment and Usage Limits](#setting-up-openai-api-payment-and-usage-limits)
-- [OpenAI API Key Generation](#openai-api-key-generation)
-- [Environment Setup](#environment-setup)
+完成设置后，请对API密钥进行测试，以确保其能在应用程序中正常运行。
+
+### 目录
+- [概述](#概述)
+- [OpenAI API支付与使用限额设置](#OpenAI-API支付与使用限额设置)
+- [OpenAI API密钥生成指南](#OpenAI-API密钥生成指南)
+- [环境配置](#环境配置)
 
 ----
 
-## Setting Up OpenAI API Payment and Usage Limits
-
-Visit the OpenAI API website
+## OpenAI API支付与使用限额设置
 
 
-- Visit: https://platform.openai.com/docs/overview
+访问 OpenAI API 网站
 
-Click **"Sign Up"** in the top right corner to create an account (If you already have an account, click **"Log in")**.
+
+- 访问: https://platform.openai.com/docs/overview
+
+点击右上角的 **"注册"** 创建账户（若已有账户，请点击 **"登录"**）。
 
 ![step1](./img/02-OpenAIAPIKeyGeneration-01.png)
 
-After logging in, navigate to your **settings** in the top right corner and select "Billing"
+登录后，请点击右上角 **设置** 菜单并选择**"Billing"**选项
 
 ![step2](./img/02-OpenAIAPIKeyGeneration-02.png)
 
-In the left "Billing" menu, click on "Payment methods" to register your credit card.
+在左侧 **计费** 菜单中，点击 **付款方式** 完成信用卡绑定
 
 ![step3](./img/02-OpenAIAPIKeyGeneration-03.png)
 
-Once your credit card is registered, it will appear in the list of payment methods as shown below.
+信用卡成功绑定后，将如下方图示显示在付款方式列表中。
 
 ![step4](./img/02-OpenAIAPIKeyGeneration-04.png)
 
-Click the "Add to credit balance" button to enter the amount in USD you wish to use.
+点击 **"充值余额"** 按钮，输入您要充值的美元金额。
 
 
 ![step5](./img/02-OpenAIAPIKeyGeneration-05.png)
 
 
 
-You can add funds starting from ```$5``` (meaning you must pay at least the minimum amount of $5).
+最低充值金额为 ```5美元```（即单次充值不得低于此金额）。
 
-After entering the amount, click "Continue" to proceed with the payment.
+输入金额后，点击 **"继续"** 完成支付流程。
 
 ![step6](./img/02-OpenAIAPIKeyGeneration-06.png)
 
-In the **"Limits"** tab on the left, you can set your monthly usage limits
+在左侧 **限额** 标签页中，您可以设置月度使用限制：
 
-- **"Set a monthly budget"** : This sets your monthly spending limit. Once you reach this amount, billing stops and the API will cease to function.
-- **"Set an email notification threshold"** : You can specify the amount at which you'll receive an email notification. When your usage reaches this amount, you'll get an email alert.
+- **"设置月度预算"**：用于设定月度支出上限。达到该金额后系统将停止计费并中止API服务。
+
+- **"设置邮件通知阈值"**：可指定触发邮件提醒的金额。当用量达到该阈值时，您将收到邮件通知。
+
 
 ![step7](./img/02-OpenAIAPIKeyGeneration-07.png)
 
-## OpenAI API Key Generation
+## OpenAI API密钥生成指南
 
-Click on your profile picture in the top-right corner, then select **"Your Profile."** 
+点击右上角个人头像，然后选择 **"个人信息"**。
 
 ![step7](./img/02-OpenAIAPIKeyGeneration-08.png)
 
-Access the API Key Management Menu
+进入API密钥管理菜单
 
-- Visit: https://platform.openai.com/api-keys
+- 访问: https://platform.openai.com/api-keys
 
 
-Click on **"Create new secret key"**
+点击 **"创建新的密钥"**
 
 ![step8](./img/02-OpenAIAPIKeyGeneration-09.png)
 
-Enter a Name and select a project (if you haven't created any projects, select Default project)
+输入密钥名称并选择项目（若未创建过项目，请选择默认项目）
 
 ![step9](./img/02-OpenAIAPIKeyGeneration-10.png)
 
-Click the **"Copy"** button on the right to copy your key.
+点击右侧 **"复制"** 按钮保存密钥。
 
-**IMPORTANT WARNING!!!**
+**重要警告！！！**
 
-If your key is leaked, others can use your API KEY to access GPT services, and charges will be billed to **YOUR account** .
-**NEVER share your key** with others and store it in a secure location! (Think of it as your password)
+若密钥泄露，他人可使用您的API密钥调用GPT服务，产生的费用将计入 **您的账户**。
+**请勿与他人共享密钥，务必将其保存在安全位置！**（请将其视为密码妥善保管）
 
 ![step10](./img/02-OpenAIAPIKeyGeneration-11.png)
 
 
-## Environment Setup
+## 环境配置
 
-Setting up the ```.env``` File
+配置 .env 文件
 
-1. Create a ```.env``` file in your project's root directory.
-2. In the ```.env``` file, enter ```OPENAI_API_KEY=your-copied-key``` then press Ctrl + S (or Command + S on Mac) to save and close the file.
+1. 在项目根目录下创建 ```.env``` 文件
+2. 在文件中输入 ```OPENAI_API_KEY=复制的密钥```，按 Ctrl + S（Mac 用户使用 Command + S）保存并关闭文件
 
 ![step12](./img/02-OpenAIAPIKeyGeneration-12.png)
 
-Setting up the .gitignore File
-1. Create a ```.gitignore``` file in your project's root directory.
-2. Add ```.env``` to your ```.gitignore``` file to prevent it from being tracked by Git.
+配置.gitignore文件
+
+1. 在项目根目录创建 ```.gitignore``` 文件
+2. 在文件中添加 ```.env``` 以避免该文件被Git追踪
 
 ![step13](./img/02-OpenAIAPIKeyGeneration-13.png)
 
 
 ```python
-# Update LangChain
+# 更新 LangChain
 !pip install langchain-opentutorial
 ```
 
@@ -134,7 +143,7 @@ load_dotenv()
 True
 ```
 
-Let's verify if the API Key is properly configured:
+现在来验证API密钥是否配置正确：
 
 ```python
 import os
