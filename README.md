@@ -1,43 +1,35 @@
-# Mintlify Starter Kit
+---
+title: "🦜️🔗 面向所有人的 LangChain 开放教程"
+description: "面向所有人的 LangChain 开放教程"
+---
 
-Use the starter kit to get your docs deployed and ready to customize.
+本教程将深入探讨 [LangChain](https://github.com/langchain-ai/langchain)，从框架概述入手，继而提供实际应用案例。
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+首尔 LangChain 社区荣幸宣布推出《LangChain 开放教程》，这是一套专为所有学习者打造的全新资源。本教程基于现有的韩语教程（[link](https://github.com/teddylee777/langchain-kr)）进行拓展开发。
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+在这个新代码库中，我们提供了以下增强功能以惠及所有技术水平的用户：
 
-## Development
+- 涵盖全球用例：满足国际用户的多样化需求；
+- 深入核心特性：详解最新版LangChain与LangGraph的前沿功能；
+- 展示扩展应用：呈现真实场景案例与进阶实践。
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
+本基础代码库既是初学者的入门指南，也是资深用户的参考手册。教程不仅为学习LangChain提供系统路径，更为已掌握基础功能的开发者提供进阶指引。
 
-```
-npm i -g mint
-```
+## 🛠️ 说明
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+本文档是[LangChain-OpenTutorial](https://github.com/LangChain-OpenTutorial/LangChain-OpenTutorial)的中文版，版权归LangChain-OpenTutorial所有。
 
-```
-mint dev
-```
+## 📚 链接
 
-View your local preview at `http://localhost:3000`.
+- [langchain-ai](https://github.com/langchain-ai/langchain) 📖
+- [LangGraph GitHub](https://github.com/langchain-ai/langgraph)
+- [LangChain Documentation](https://python.langchain.com/docs/introduction/)
 
-## Publishing changes
+## Licence
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+除非另有说明，本代码库依据 [MIT 许可证][1] 发布。此许可证同时适用于代码库及文档中的所有示例代码。
 
-## Need help?
+[1]: ./LICENCE
 
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+✨ Want to join? Add your info and submit a PR!
