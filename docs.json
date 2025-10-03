@@ -82,7 +82,8 @@
               "lang-chain/01-Basic/01-Getting-Started-Windows",
               "lang-chain/01-Basic/02-Getting-Started-Mac",
               "lang-chain/01-Basic/03-OpenAIAPI-Key-Generation",
-              "lang-chain/01-Basic/04-LangSmith-Tracking-Setup"
+              "lang-chain/01-Basic/04-LangSmith-Tracking-Setup",
+              "lang-chain/01-Basic/05-Using-OpenAIAPI-MultiModal"
             ]
           }
           
