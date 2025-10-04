@@ -7,6 +7,27 @@
     "light": "#07C983",
     "dark": "#15803D"
   },
+  "metadata": {
+    "title": "🦜️🔗 面向所有人的 LangChain 开放教程",
+    "description": "🦜️🔗 面向所有人的 LangChain 开放教程。本教程将深入探讨 LangChain，从框架概述入手，继而提供实际应用案例。首尔 LangChain 社区荣幸宣布推出《LangChain 开放教程》，这是一套专为所有学习者打造的全新资源。本教程基于现有的韩语教程（link）进行拓展开发。本基础代码库既是初学者的入门指南，也是资深用户的参考手册。教程不仅为学习LangChain提供系统路径，更为已掌握基础功能的开发者提供进阶指引。",
+    "keywords": "AI工具, LangChain, API文档, 技术文档，LangChain-OpenTutorial",
+    "og:title": "🦜️🔗 面向所有人的 LangChain 开放教程",
+    "og:description": "🦜️🔗 面向所有人的 LangChain 开放教程。本教程将深入探讨 LangChain，从框架概述入手，继而提供实际应用案例。首尔 LangChain 社区荣幸宣布推出《LangChain 开放教程》，这是一套专为所有学习者打造的全新资源。本教程基于现有的韩语教程（link）进行拓展开发。本基础代码库既是初学者的入门指南，也是资深用户的参考手册。教程不仅为学习LangChain提供系统路径，更为已掌握基础功能的开发者提供进阶指引。",
+    "og:image": "/og-image.png",
+    "og:url": "https://langchain-tutorial.mintlify.app/lang-chain",
+    "og:type": "website",
+    "og:site_name": "Mint Starter Kit",
+    "twitter:card": "summary_large_image",
+    "twitter:title": "Mint Starter Kit - 开发文档模板",
+    "twitter:description": "完整的文档模板，包含AI工具和LangChain集成",
+    "twitter:image": "/twitter-image.png",
+    "twitter:site": "@mintlify",
+    "twitter:creator": "@mintlify"
+  },
+   "analytics": {
+    "ga4": "G-XXXXXXXXXX",
+    "plausible": "langchain-tutorial.mintlify.app/lang-chain"
+  },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
@@ -134,6 +155,7 @@
       "vscode"
     ]
   },
+  
   "footer": {
     "socials": {
       "x": "https://x.com/mintlify",
@@ -141,4 +163,5 @@
       "linkedin": "https://linkedin.com/company/mintlify"
     }
   }
+
 }
