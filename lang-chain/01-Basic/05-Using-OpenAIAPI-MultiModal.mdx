@@ -1,38 +1,40 @@
-# Using the OpenAI API (GPT-4o Multimodal)
+---
+title: "使用OpenAI API（GPT-4o 多模态模型）"
+description: "使用OpenAI API（GPT-4o多模态模型）"
+---
 
-- Author: [Erika Park](https://www.linkedin.com/in/yeonseo-park-094193198/)
-- Peer Review: [JeongGi Park](https://www.linkedin.com/in/jeonggipark/), [Wooseok Jeong](https://github.com/jeong-wooseok)
-- Proofread : [Q0211](https://github.com/Q0211)
-- This is a part of [LangChain Open Tutorial](https://github.com/LangChain-OpenTutorial/LangChain-OpenTutorial)
+- 翻译：[xiaoshun007](https://github.com/xiaoshun007)
+- 作者: [Erika Park](https://www.linkedin.com/in/yeonseo-park-094193198/)
+- 评审: [JeongGi Park](https://www.linkedin.com/in/jeonggipark/), [Wooseok Jeong](https://github.com/jeong-wooseok)
+- 校对 : [Q0211](https://github.com/Q0211)
+- 本内容是 [LangChain Open Tutorial](https://github.com/LangChain-OpenTutorial/LangChain-OpenTutorial) 的一部分
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/LangChain-OpenTutorial/LangChain-OpenTutorial/blob/main/01-Basic/05-Using-OpenAIAPI-MultiModal.ipynb)[![Open in GitHub](https://img.shields.io/badge/Open%20in%20GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/LangChain-OpenTutorial/LangChain-OpenTutorial/blob/main/01-Basic/05-Using-OpenAIAPI-MultiModal.ipynb)
-## Overview
+## 概述
 
-This tutorial explains how to effectively use OpenAI's ```GPT-4o``` multimodal model with ```LangChain```, a versatile framework for building language model applications. You'll learn to set up and work with the ```ChatOpenAI``` object for tasks such as generating responses, analyzing model outputs, and leveraging advanced features like real-time response streaming and token log probability analysis. By the end of this guide, you'll have the tools to experiment with and deploy sophisticated AI solutions smoothly and efficiently.
+  本教程将详解如何结合`LangChain`框架高效运用OpenAI的`GPT-4o`多模态模型。您将学习通过配置`ChatOpenAI`对象实现以下功能：生成智能回复、解析模型输出，并运用实时响应流与令牌概率分析等高级特性。通过本指南，您将掌握快速实验并部署精密AI解决方案的完整能力。
 
+### 目录
 
-### Table of Contents
-
-- [Overview](#overview)
+- [概述](#概述)
 - [Environment Setup](#environment-setup)
 - [ChatOpenAI GPT-4o Multimodal](#chatopenai-gpt-4o-multimodal)
 - [Multimodal AI: Text and Image Processing with GPT-4o](#multimodal-ai-text-and-image-processing-with-gpt-4o)
 - [Configuring Multimodal AI with System and User Prompts](#configuring-multimodal-ai-with-system-and-user-prompts)
 
-
 ### References
 
 - [OpenAI Model Overview](https://platform.openai.com/docs/models)
 
-----
+---
 
 ## Environment Setup
 
 Set up the environment. You may refer to [Environment Setup](https://wikidocs.net/257836) for more details.
 
 **[Note]**
-- ```langchain-opentutorial``` is a package that provides a set of easy-to-use environment setup, useful functions, and utilities for tutorials. 
-- You can checkout out the [```langchain-opentutorial```](https://github.com/LangChain-OpenTutorial/langchain-opentutorial-pypi) for more details.
+
+- `langchain-opentutorial` is a package that provides a set of easy-to-use environment setup, useful functions, and utilities for tutorials.
+- You can checkout out the [`langchain-opentutorial`](https://github.com/LangChain-OpenTutorial/langchain-opentutorial-pypi) for more details.
 
 ```python
 %%capture --no-stderr
@@ -65,9 +67,10 @@ set_env(
 )
 ```
 
-<pre class="custom">```Environment variables have been set successfully.```</pre>
+<pre class="custom">
+Environment variables have been set successfully.</pre>
 
-You can alternatively set API keys such as ```OPENAI_API_KEY``` in a ```.env``` file and load them.
+You can alternatively set API keys such as `OPENAI_API_KEY` in a `.env` file and load them.
 
 [Note] This is not necessary if you've already set the required API keys in previous steps.
 
@@ -79,12 +82,8 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 ```
 
-
-
-
-<pre class="custom">True</pre>
-
-
+<pre class="custom">
+True</pre>
 
 ## ChatOpenAI GPT-4o Multimodal
 
@@ -92,24 +91,23 @@ This is a chat-specific Large Language Model (LLM) provided by OpenAI.
 
 When creating an object, the following options can be specified. Details about the options are as follows:
 
-```temperature```
+`temperature`
 
 - Specifies the sampling temperature, which can be chosen between 0 and 2. A higher value, such as 0.8, results in more random outputs, while a lower value, such as 0.2, makes the outputs more focused and deterministic.
 
-```max_tokens```
+`max_tokens`
 
 - The maximum number of tokens to generate for the chat completion.
 
-```model_name``` : List of available models
-- ```gpt-4o```
-- ```gpt-4o-mini```
-- ```o1-preview```, ```o1-preview-mini``` : Available only for Tier 5 accounts, which require a minimum recharge of $1,000 to access.
+`model_name` : List of available models
+
+- `gpt-4o`
+- `gpt-4o-mini`
+- `o1-preview`, `o1-preview-mini` : Available only for Tier 5 accounts, which require a minimum recharge of \$1,000 to access.
 
 ![gpt-models.png](./img/04-using-openai-api-gpt4o-get-models.png)
 
 - Link: https://platform.openai.com/docs/models
-
-
 
 ```python
 from langchain_openai.chat_models import ChatOpenAI
@@ -125,29 +123,30 @@ question = "What is the capital of USA?"
 print(f"[Answer]: {llm.invoke(question)}")
 ```
 
-<pre class="custom">```[Answer]: content='The capital of the United States is Washington, D.C.' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 13, 'prompt_tokens': 14, 'total_tokens': 27, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0aa8d3e20b', 'finish_reason': 'stop', 'logprobs': None} id='run-513b84b7-4d52-4256-9af1-1713ba4f4930-0' usage_metadata={'input_tokens': 14, 'output_tokens': 13, 'total_tokens': 27, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}}```</pre>
+<pre class="custom">
+[Answer]: content='The capital of the United States is Washington, D.C.' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 13, 'prompt_tokens': 14, 'total_tokens': 27, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0aa8d3e20b', 'finish_reason': 'stop', 'logprobs': None} id='run-513b84b7-4d52-4256-9af1-1713ba4f4930-0' usage_metadata={'input_tokens': 14, 'output_tokens': 13, 'total_tokens': 27, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}}</pre>
 
 ### Response Format (AI Message)
-When using the ```ChatOpenAI``` object, the response is returned in the format of an AI Message. This includes the text content generated by the model along with any metadata or additional properties associated with the response. These provide structured information about the AI's reply and how it was generated.
+
+When using the `ChatOpenAI` object, the response is returned in the format of an AI Message. This includes the text content generated by the model along with any metadata or additional properties associated with the response. These provide structured information about the AI's reply and how it was generated.
 
 **Key Components of AI Message**
-1. **```content```**  
-   - **Definition:** The primary response text generated by the AI.  
+
+1. **`content`**
+   - **Definition:** The primary response text generated by the AI.
    - **Example:** **"The capital of South Korea is Seoul."**
    - **Purpose:** This is the main part of the response that users interact with.
-
-2. **```response_metadata```**  
-   - **Definition:** Metadata about the response generation process.  
+2. **`response_metadata`**
+   - **Definition:** Metadata about the response generation process.
    - **Key Fields:**
-     - **```model_name``` :** Name of the model used (e.g., ```"gpt-4o-mini"``` ).
-     - **```finish_reason``` :** Reason the generation stopped (**stop** for normal completion).
-     - **```token_usage``` :** Token usage details:
-       - **```prompt_tokens``` :** Tokens used for the input query.
-       - **```completion_tokens``` :** Tokens used for the response.
-       - **```total_tokens``` :** Combined token count.
-
-3. **```id```**  
-   - **Definition:** A unique identifier for the API call.  
+     - **`model_name :`** Name of the model used (e.g., `"gpt-4o-mini"` ).
+     - **`finish_reason :`** Reason the generation stopped (**stop** for normal completion).
+     - **`token_usage :`** Token usage details:
+       - **`prompt_tokens :`** Tokens used for the input query.
+       - **`completion_tokens :`** Tokens used for the response.
+       - **`total_tokens :`** Combined token count.
+3. **`id`**
+   - **Definition:** A unique identifier for the API call.
    - **Purpose:** Useful for tracking or debugging specific interactions.
 
 ```python
@@ -159,12 +158,8 @@ response = llm.invoke(question)
 response
 ```
 
-
-
-
-<pre class="custom">```AIMessage(content='The capital of the United States is Washington, D.C.', additional_kwargs={'refusal': None}, response_metadata={'token_usage': {'completion_tokens': 13, 'prompt_tokens': 14, 'total_tokens': 27, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0aa8d3e20b', 'finish_reason': 'stop', 'logprobs': None}, id='run-16669141-7244-4cf4-91dd-8c3f1efc8d24-0', usage_metadata={'input_tokens': 14, 'output_tokens': 13, 'total_tokens': 27, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}})```</pre>
-
-
+<pre class="custom">
+AIMessage(content='The capital of the United States is Washington, D.C.', additional_kwargs={'refusal': None}, response_metadata={'token_usage': {'completion_tokens': 13, 'prompt_tokens': 14, 'total_tokens': 27, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0aa8d3e20b', 'finish_reason': 'stop', 'logprobs': None}, id='run-16669141-7244-4cf4-91dd-8c3f1efc8d24-0', usage_metadata={'input_tokens': 14, 'output_tokens': 13, 'total_tokens': 27, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}})</pre>
 
 ```python
 # Extract key components
@@ -178,19 +173,16 @@ print(f"Model: {model_name}")
 print(f"Total Tokens Used: {total_tokens}")
 ```
 
-<pre class="custom">Response: The capital of the United States is Washington, D.C.
-    Model: gpt-4o-mini-2024-07-18
-    Total Tokens Used: 27</pre>
+<pre class="custom">
+Response: The capital of the United States is Washington, D.C. Model: gpt-4o-mini-2024-07-18 Total Tokens Used: 27</pre>
 
-### Activating ```LogProb```
+### Activating `LogProb`
 
-```LogProb``` represents the **logarithmic probabilities** assigned by the model to predicted tokens. A token is an individual unit of text, such as a word, character, or part of a word. The probability indicates the **model's confidence in predicting each token**.
+`LogProb` represents the **logarithmic probabilities** assigned by the model to predicted tokens. A token is an individual unit of text, such as a word, character, or part of a word. The probability indicates the **model's confidence in predicting each token**.
 
-**Use Cases**:
-```LogProb``` is useful for evaluating the model's prediction confidence, debugging issues, and optimizing prompts. By analyzing ```LogProb``` data, you can understand why the model selected specific tokens.
+**Use Cases**: `LogProb` is useful for evaluating the model's prediction confidence, debugging issues, and optimizing prompts. By analyzing `LogProb` data, you can understand why the model selected specific tokens.
 
-**Caution**:
-Enabling ```LogProb``` increases the response data size, which may affect API speed and cost. It is recommended to activate it only when necessary.
+**Caution**: Enabling `LogProb` increases the response data size, which may affect API speed and cost. It is recommended to activate it only when necessary.
 
 ```python
 # Object creation with LogProb enabled
@@ -212,7 +204,8 @@ response = llm_with_logprob.invoke(question)
 print(response.response_metadata)
 ```
 
-<pre class="custom">```{'token_usage': {'completion_tokens': 9, 'prompt_tokens': 14, 'total_tokens': 23, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0aa8d3e20b', 'finish_reason': 'stop', 'logprobs': {'content': [{'token': 'The', 'bytes': [84, 104, 101], 'logprob': 0.0, 'top_logprobs': []}, {'token': ' capital', 'bytes': [32, 99, 97, 112, 105, 116, 97, 108], 'logprob': 0.0, 'top_logprobs': []}, {'token': ' of', 'bytes': [32, 111, 102], 'logprob': 0.0, 'top_logprobs': []}, {'token': ' India', 'bytes': [32, 73, 110, 100, 105, 97], 'logprob': 0.0, 'top_logprobs': []}, {'token': ' is', 'bytes': [32, 105, 115], 'logprob': 0.0, 'top_logprobs': []}, {'token': ' New', 'bytes': [32, 78, 101, 119], 'logprob': -3.7742768e-05, 'top_logprobs': []}, {'token': ' Delhi', 'bytes': [32, 68, 101, 108, 104, 105], 'logprob': -4.3202e-07, 'top_logprobs': []}, {'token': '.', 'bytes': [46], 'logprob': -5.5122365e-07, 'top_logprobs': []}], 'refusal': None}}```</pre>
+<pre class="custom">
+{'token_usage': {'completion_tokens': 9, 'prompt_tokens': 14, 'total_tokens': 23, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0aa8d3e20b', 'finish_reason': 'stop', 'logprobs': {'content': [{'token': 'The', 'bytes': [84, 104, 101], 'logprob': 0.0, 'top_logprobs': []}, {'token': ' capital', 'bytes': [32, 99, 97, 112, 105, 116, 97, 108], 'logprob': 0.0, 'top_logprobs': []}, {'token': ' of', 'bytes': [32, 111, 102], 'logprob': 0.0, 'top_logprobs': []}, {'token': ' India', 'bytes': [32, 73, 110, 100, 105, 97], 'logprob': 0.0, 'top_logprobs': []}, {'token': ' is', 'bytes': [32, 105, 115], 'logprob': 0.0, 'top_logprobs': []}, {'token': ' New', 'bytes': [32, 78, 101, 119], 'logprob': -3.7742768e-05, 'top_logprobs': []}, {'token': ' Delhi', 'bytes': [32, 68, 101, 108, 104, 105], 'logprob': -4.3202e-07, 'top_logprobs': []}, {'token': '.', 'bytes': [46], 'logprob': -5.5122365e-07, 'top_logprobs': []}], 'refusal': None}}</pre>
 
 ### Streaming Output
 
@@ -230,7 +223,7 @@ for token in answer:
     print(token.content, end="", flush=True)
 ```
 
-```
+````
 Sure! Here are 10 beautiful tourist destinations in the USA along with their addresses:
     
     1. **Grand Canyon National Park**
@@ -287,9 +280,10 @@ llm = ChatOpenAI(
     model_name="gpt-4o",
     streaming=True,  # Enable streaming for real-time output
 )
-```
+````
 
 ### Step 2. Encoding Images
+
 Images need to be encoded into **Base64** format for the model to process them. The following function handles both URL-based and local image files:
 
 ```python
@@ -333,9 +327,9 @@ def encode_image(image_path_or_url):
     return f"data:{mime_type};base64,{base64.b64encode(image_content).decode()}"
 ```
 
-**Example: Encode and Display an Image** 
+**Example: Encode and Display an Image**
 
-* URL-based Image:
+- URL-based Image:
 
 ```python
 IMAGE_URL = "https://t3.ftcdn.net/jpg/03/77/33/96/360_F_377339633_Rtv9I77sSmSNcev8bEcnVxTHrXB4nRJ5.jpg"
@@ -343,9 +337,7 @@ encoded_image_url = encode_image(IMAGE_URL)
 display(Image(url=encoded_image_url))  # Display the image
 ```
 
-
-
-* Local Image:
+- Local Image:
 
 ```python
 IMAGE_PATH = "./assets/04-using-openai-api-gpt4o-sample-image.png"
@@ -354,9 +346,8 @@ html_code = f'<img src="{encoded_image_file}" alt="Image" style="max-width: 100%
 display(HTML(html_code))  # Display the image
 ```
 
-
-
 ### Step 3: Creating Messages
+
 Define a function to generate the messages required for the model. This includes:
 
 - **System Prompt**: Defines the role and task for the AI.
@@ -381,6 +372,7 @@ def create_messages(encoded_image):
 ```
 
 ### Step 4: Model Interaction
+
 Now, send the generated messages to the model and stream the results in real time.
 
 ```python
@@ -403,30 +395,27 @@ messages_url = create_messages(encoded_image_url)
 stream_response(llm, messages_url)
 ```
 
+![](https://t3.ftcdn.net/jpg/03/77/33/96/360_F_377339633_Rtv9I77sSmSNcev8bEcnVxTHrXB4nRJ5.jpg)
 
-<img src="https://t3.ftcdn.net/jpg/03/77/33/96/360_F_377339633_Rtv9I77sSmSNcev8bEcnVxTHrXB4nRJ5.jpg"/>
+Streaming response: The image is a table with a header labeled "TABLE 001: LOREM IPSUM DOLOR AMIS ENIMA ACCUMER TUNA." It contains five columns with the following headings:
 
+1. **Loremis**
+2. **Amis terim**
+3. **Gāto lepis**
+4. **Tortores**
 
-    Streaming response:
-    The image is a table with a header labeled "TABLE 001: LOREM IPSUM DOLOR AMIS ENIMA ACCUMER TUNA." It contains five columns with the following headings:
-    
-    1. **Loremis**
-    2. **Amis terim**
-    3. **Gāto lepis**
-    4. **Tortores**
-    
-    Each row under these headings contains various data points:
-    
-    - **Lorem dolor siamet**: 8,288, 123%, YES, $89
-    - **Consecter odio**: 123, 87%, NO, $129
-    - **Gatoque accums**: 1,005, 12%, NO, $199
-    - **Sed hac enim rem**: 56, 69%, N/A, $199
-    - **Rempus tortor just**: 5,554, 18%, NO, $999
-    - **Klimas nsecter**: 455, 56%, NO, $245
-    - **Babiask atoque accu**: 1,222, 2%, YES, $977
-    - **Enim rem kos**: 5,002, 91%, N/A, $522
-    
-    The table uses placeholder text ("Lorem ipsum") for both the title and the row labels, which is commonly used in design to fill space until actual content is available. The data appears to be numerical and categorical, with percentages, binary options (YES/NO), and monetary values. The last row of text is a continuation of the placeholder text, providing no additional information.
+Each row under these headings contains various data points:
+
+- **Lorem dolor siamet**: 8,288, 123%, YES, \$89
+- **Consecter odio**: 123, 87%, NO, \$129
+- **Gatoque accums**: 1,005, 12%, NO, \$199
+- **Sed hac enim rem**: 56, 69%, N/A, \$199
+- **Rempus tortor just**: 5,554, 18%, NO, \$999
+- **Klimas nsecter**: 455, 56%, NO, \$245
+- **Babiask atoque accu**: 1,222, 2%, YES, \$977
+- **Enim rem kos**: 5,002, 91%, N/A, \$522
+
+The table uses placeholder text ("Lorem ipsum") for both the title and the row labels, which is commonly used in design to fill space until actual content is available. The data appears to be numerical and categorical, with percentages, binary options (YES/NO), and monetary values. The last row of text is a continuation of the placeholder text, providing no additional information.
 
 ```python
 # Encoding image
@@ -440,92 +429,81 @@ messages_file = create_messages(encoded_image_file)
 stream_response(llm, messages_file)
 ```
 
+Streaming response: The image is an informational poster about the "First OpenAI DevDay Event" held on November 6, 2023. It highlights several key updates and features introduced during the event. Here's a detailed breakdown:
 
+### Event Details:
 
-    Streaming response:
-    The image is an informational poster about the "First OpenAI DevDay Event" held on November 6, 2023. It highlights several key updates and features introduced during the event. Here's a detailed breakdown:
-    
-    ### Event Details:
-    - **Title:** First OpenAI DevDay Event
-    - **Date:** November 6, 2023
-    - **Key Announcements:**
-      - GPT 4 Turbo
-      - 128k Tokens
-      - Custom GPTs
-      - Assistant API
-      - Price Reduction
-    
-    ### Source:
-    - A YouTube link is provided for more information: [OpenAI DevDay Event](https://www.youtube.com/watch?v=U9mjJuUkhUzk)
-    
-    ### Main Updates Summarized:
-    1. **Token Length:** 
-       - Increased to 128K tokens.
-       
-    2. **Custom GPTs:**
-       - Available as private or public options.
-       
-    3. **Multi Modal:**
-       - Supports image, video, and voice inputs.
-       
-    4. **JSON Mode:**
-       - Guaranteed functionality.
-       
-    5. **Assistant API:**
-       - Available for developers.
-       
-    6. **Text to Speech:**
-       - In beta release.
-       
-    7. **Natural Voice Options:**
-       - Offers 6 different voices.
-       
-    8. **GPT Store:**
-       - Revenue sharing model.
-       
-    9. **Conversation Threading:**
-       - Organized per conversation.
-       
-    10. **File Uploading:**
-        - Supports multiple files.
-        
-    11. **API Price Reduction:**
-        - Reduced by 2.5x to 3.5x.
-        
-    12. **Code Interpreter:**
-        - Built-in feature.
-        
-    13. **Function Calling:**
-        - Built-in feature.
-    
-    ### Branding:
-    - The poster includes the logo and branding of "Astra Techz," with the tagline "Simplifying Technology."
-    
-    ### Footer:
-    - A call to action to visit [www.astratechz.com](http://www.astratechz.com) for building AI solutions.
-    
-    This poster serves as a concise summary of the new features and improvements announced at the OpenAI DevDay event, aimed at developers and businesses interested in AI advancements.
+- **Title:** First OpenAI DevDay Event
+- **Date:** November 6, 2023
+- **Key Announcements:**
+  - GPT 4 Turbo
+  - 128k Tokens
+  - Custom GPTs
+  - Assistant API
+  - Price Reduction
+
+### Source:
+
+- A YouTube link is provided for more information: [OpenAI DevDay Event](https://www.youtube.com/watch?v=U9mjJuUkhUzk)
+
+### Main Updates Summarized:
+
+ 1. **Token Length:**
+    - Increased to 128K tokens.
+ 2. **Custom GPTs:**
+    - Available as private or public options.
+ 3. **Multi Modal:**
+    - Supports image, video, and voice inputs.
+ 4. **JSON Mode:**
+    - Guaranteed functionality.
+ 5. **Assistant API:**
+    - Available for developers.
+ 6. **Text to Speech:**
+    - In beta release.
+ 7. **Natural Voice Options:**
+    - Offers 6 different voices.
+ 8. **GPT Store:**
+    - Revenue sharing model.
+ 9. **Conversation Threading:**
+    - Organized per conversation.
+10. **File Uploading:**
+    - Supports multiple files.
+11. **API Price Reduction:**
+    - Reduced by 2.5x to 3.5x.
+12. **Code Interpreter:**
+    - Built-in feature.
+13. **Function Calling:**
+    - Built-in feature.
+
+### Branding:
+
+- The poster includes the logo and branding of "Astra Techz," with the tagline "Simplifying Technology."
+
+### Footer:
+
+- A call to action to visit [www.astratechz.com](http://www.astratechz.com) for building AI solutions.
+
+This poster serves as a concise summary of the new features and improvements announced at the OpenAI DevDay event, aimed at developers and businesses interested in AI advancements.
 
 ## Configuring Multimodal AI with System and User Prompts
+
 This tutorial demonstrates how to configure a multimodal AI using **system prompts** and **user prompts**, and how to process and interpret an image-based financial table.
 
+### What Are Prompts?
 
-### What Are Prompts? 
+**System Prompt** Defines the AI's identity, responsibilities, and behavior for the session:
 
-**System Prompt**
-Defines the AI's identity, responsibilities, and behavior for the session:
+- Sets the AI's context, ensuring consistent responses.
+- Example: "You are a financial assistant specializing in interpreting tables."
 
-* Sets the AI's context, ensuring consistent responses.
-* Example: "You are a financial assistant specializing in interpreting tables."
+**User Prompt** Gives task-specific instructions to guide the AI:
 
-**User Prompt**
-Gives task-specific instructions to guide the AI:
-
-* Specifies what the user expects the AI to do.
-* Example: "Analyze this financial table and summarize the insights."
+- Specifies what the user expects the AI to do.
+- Example: "Analyze this financial table and summarize the insights."
 
 ### Step 1: Set Up the ChatOpenAI Object
-The ```ChatOpenAI``` object initializes the model with the desired configurations, such as temperature and model type.
+
+The `ChatOpenAI` object initializes the model with the desired configurations, such as temperature and model type.
 
 ```python
 # Create the ChatOpenAI object
@@ -533,7 +511,8 @@ llm = ChatOpenAI(temperature=0.1, model_name="gpt-4o", streaming=True)
 ```
 
 ### Step2: Encode and Display the Image
-Images need to be encoded into Base64 format so the AI can process them. 
+
+Images need to be encoded into Base64 format so the AI can process them.
 
 ```python
 IMAGE_URL = "https://media.wallstreetprep.com/uploads/2022/05/24100154/NVIDIA-Income-Statement.jpg?_gl=1*zqx63z*_gcl_au*MTI3Njg2MTE3Mi4xNzM1NDg1OTky*_ga*Mjg1MjY3NTAzLjE3MzU0ODU5OTI.*_ga_0X18K5P59L*MTczNTQ4NTk5MS4xLjAuMTczNTQ4NTk5MS42MC4wLjE1OTkyODA0MTI."
@@ -542,9 +521,8 @@ encoded_image_url = encode_image(IMAGE_URL)
 display(Image(url=encoded_image_url))  # Display the original image.
 ```
 
-
-
 ### Step 3: Define System and User Prompts
+
 Set up the prompts to guide the AI’s behavior and task execution.
 
 ```python
@@ -557,6 +535,7 @@ user_prompt = """The table provided to you represents a company's financial stat
 ```
 
 ### Step 4: Create Messages for the AI
+
 Combine the system prompt, user prompt, and the encoded image into a structured message format.
 
 ```python
@@ -573,6 +552,7 @@ messages = [
 ```
 
 ### Step 5: Stream the AI's Response
+
 Use the AI model to process the messages and stream the results in real time.
 
 ```python
