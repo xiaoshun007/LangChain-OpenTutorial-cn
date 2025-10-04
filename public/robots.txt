@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /preview/
+
+Sitemap: https://langchain-tutorial.mintlify.app/lang-chain/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
